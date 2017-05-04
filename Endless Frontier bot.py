@@ -378,7 +378,7 @@ openGame()
 w.startTimer()
        
 def on_press(key):
-    if key.char == 'p':
+    if key == keyboard.KeyCode.from_char('p'):
         wR.exiting = not wR.exiting
         if wR.exiting:
             w.stopTimer()
@@ -386,11 +386,12 @@ def on_press(key):
         else:
             print 'UnPausing'
             w.startTimer()
-    if key.char == 'e':
+    if key == keyboard.KeyCode.from_char('e'):
         print 'Exiting'
         #stopTimer()
         wR.exiting=True
         sys.exit()
+
 
 with keyboard.Listener(on_press=on_press) as listener:
     listener.join()
